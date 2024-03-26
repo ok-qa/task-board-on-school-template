@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <h1>Example title</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>Kanban Board</title>
+
+  <script type="module" src="./index.js"></script>
+
+</head>
+
+<body>
+  <div class="board">
+    <p1 class="header">Task Board</p1>
+    <button type="button" class="createItemBtn" data-modal-open="">Create New Task</button>
+    <div class="kanban-lanes">
+
+      <div class="kanban-column" id="todo-column">
+        <div class="column-title">TO DO</div>
+        <div class="kanban-item">
+        </div>
+        <!-- <button type="button" class="createItemBtn" data-modal-open="">Create New Task</button> -->
+      </div>
+
+      <div class="kanban-column" id="inProgress-column">
+        <div class="column-title">IN PROGRESS</div>
+        <div class="kanban-item">
+        </div>
+        <!-- <button type="button" class="createItemBtn" data-modal-open="">Create New Task</button> -->
+      </div>
+
+      <div class="kanban-column" id="done-column">
+        <div class="column-title">DONE</div>
+        <div class="kanban-item">
+        </div>
+        <!-- <button type="button" class="createItemBtn" data-modal-open="">Create New Task</button> -->
+      </div>
+    </div>
+
+    <!-- <a href="/edit"></a> -->
+
+    <!-- Modal -->
+    <div class="backdrop is-hidden" data-modal="">
+
+      <div class="modal-content">
+        <span class="close" data-modal-close="">×</span>
+
+        <p class="modal-title">Create New Task</p>
+
+        <form id="todo-form">
+          <div class="form-group">
+            <label class="form-label" for="name">
+              <div class="form-field">
+                <span>Task Name:</span>
+                <input type="text" name="name" id="form-input" class="form-input" placeholder="Task Name" required="">
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="description">
+              <div class="form-field">
+                <span>Description</span>
+                <input type="text" name="description" id="description" class="form-description"
+                  placeholder="Task Description" required="">
+              </div>
+            </label>
+
+          </div>
+          <div class="form-group">
+            <!-- TODO: fix Status layout -->
+            <p class="form-label">Status:</p>
+            <select class="form-select" id="status">
+              <option class="option" id="toDo" selected="">To Do</option>
+              <option class="option" id="inProgress">In Progress</option>
+              <option class="option" id="done">Done</option>
+            </select>
+          </div>
+
+          <button type="submit" class="form-button button"> Create </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
 </html>

@@ -1,0 +1,309 @@
+.kanban * {
+  font-family: Raleway;
+}
+body{
+   background-image: url(../images/5160549.jpg);
+   background-size: cover;
+}
+
+.task-buttons{
+    display: flex;
+    flex-wrap: nowrap;
+    /* align-content: flex-start; */
+    justify-content: space-evenly;
+    align-items: baseline;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 800;
+    color: white;
+  text-transform: uppercase;
+}
+
+.kanban-lanes {
+  display: flex;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px;
+  border-color: black;
+  
+}
+
+.kanban-column {
+  flex: 1;
+  border: 1px;
+  border-radius: 5px;
+  background-color: #f3eeee43; 
+}
+
+.kanban-column:not(:last-child) {
+  margin-right: 30px;
+}
+
+.column-title {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  user-select: none;
+}
+
+.item-input {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createItemBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: rgb(16, 82, 214);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px;
+  border-color: #000;
+  border-radius: 5px;
+}
+
+.createItemBtn:hover,
+.createItemBtn:focus {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(16, 82, 214, 0.621);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: visibility 250ms linear, 100ms;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.modal-title {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: calc(24 / 16);
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+
+  color: rgba(16, 82, 214, 0.621);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+
+  position: relative;
+  color: rgb(33, 125, 125);
+}
+
+.form-input {
+  font-family: inherit;
+  width: 100%;
+  height: 40px;
+  border: solid 1px rgb(6, 69, 69);
+  border-radius: 4px;
+  padding-left: 36px;
+}
+
+.form-input:focus {
+  border: solid 1px rgb(85, 230, 230);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+input {
+  padding: 8px;
+  font-family: inherit;
+  outline: transparent;
+}
+
+.form-button {
+  width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(33, 125, 125);
+  background-color: rgba(0, 0, 0, 0.1);
+
+  font-size: 16px;
+  letter-spacing: 0.04em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.form-button:is(:hover, :focus) {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(33, 125, 125);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.form-label span {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-field {
+  position: relative;
+}
+
+.form-input:focus + .form-icon {
+  fill: var(--pressed-state);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.form-group {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.text-input {
+  display: block;
+  width: 100%;
+  height: 120px;
+  border: solid 1px rgb(33, 125, 125);
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  resize: none;
+
+  outline: transparent;
+}
+
+.text-input:focus {
+  border: solid 1px 1px rgb(85, 230, 230);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+.task-name {
+  text-transform: capitalize;
+  font-weight: 800;
+      display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.task-description {
+  font-weight: 400;
+}
+.task-description::first-letter {
+  text-transform: uppercase;
+}
+
+.option {
+  text-transform: uppercase;
+}
+
+.task-card {
+  background: rgba(0, 0, 0, 0.1);
+  border: solid 1px rgb(33, 125, 125);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 16px;
+}
+
+.task-remove:is(:hover, :focus) {
+  cursor: pointer;
+  fill: white;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+  /* background-color: rgb(33, 125, 125);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+  border-radius: 5px; */
+} 
+.task-edit:is(:hover, :focus) {
+  cursor: pointer;
+  fill: white;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+
+p {
+  font-weight: 100;
+}
+
+
