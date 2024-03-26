@@ -5,11 +5,11 @@
   "homepage": "https://ok-qa.github.io/task-board-on-school-template/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /task-board-on-school-template/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ok-qa/task-board-on-school-template.git"
+    "url": "git+https://ok-qa.github.io/task-board-on-school-template.git"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
