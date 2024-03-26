@@ -1,9 +1,9 @@
-import { toggleModal } from './js/modal';
-import { initDragAndDrop, addDragListenersToTask } from './js/drag';
-import createCardHTML from './js/createCardHTML';
+import { toggleModal } from './js/modal.js';
+import { initDragAndDrop, addDragListenersToTask } from './js/drag.js';
+import createCardHTML from './js/createCardHTML.js';
 import {
   saveTaskToStorage, removeTaskFromStorage, getTasksFromStorage, updateDescriptionInStorage,
-} from './js/storage';
+} from './js/storage.js';
 
 const form = document.getElementById('todo-form');
 const nameInput = document.getElementById('form-input');
